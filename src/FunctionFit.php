@@ -1,5 +1,5 @@
 <?php
-namespace Math;
+namespace Swango\Math;
 class FunctionFit {
     /**
      * Fit Linear.
