@@ -9,8 +9,16 @@ class NormalRand {
         return sqrt(-2 * log($x)) * cos(self::M_PI_DOUBLE * $y) * $sd + $av;
     }
     public static function getRandSumUsingNormalRand(int $min, int $max, int $times): int {
+        if ($min === $max) {
+            return $min * $times;
+        }
         $av = ($min + $max) / 2 * $times;
         $st = sqrt($times) * ($max - $min) / self::SQRT_12;
-        return round(self::getNormalRand($av, $st));
+        $result_min = $min * $times;
+        $result_max = $max * $times;
+        do {
+            $result = intval(round(self::getNormalRand($av, $st)));
+        } while ($result < $result_min || $result > $result_max);
+        return $result;
     }
 }
