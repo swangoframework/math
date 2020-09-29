@@ -1,20 +1,21 @@
 {
-	"name" : "swango/math",
-	"license" : "Apache-2.0",
-	"keywords" : [
-		"php",
-		"function-fit"
-	],
-	"require" : {
-		"php" : ">=7.1"
-	},
-	"autoload" : {
-		"psr-4" : {
-			"Swango\\Math\\" : "src"
-		}
-	},
-	"config" : {
-		"optimize-autoloader" : true,
-		"sort-packages" : true
-	}
+    "name" : "swango/math",
+    "license" : "Apache-2.0",
+    "keywords" : [
+        "php",
+        "function-fit",
+        "normal-rand"
+    ],
+    "require" : {
+        "php" : ">=7.1"
+    },
+    "autoload" : {
+        "psr-4" : {
+            "Swango\\Math\\" : "src"
+        }
+    },
+    "config" : {
+        "optimize-autoloader" : true,
+        "sort-packages" : true
+    }
 }
