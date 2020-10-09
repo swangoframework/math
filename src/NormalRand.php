@@ -13,11 +13,27 @@ class NormalRand {
             return $min * $times;
         }
         $av = ($min + $max) / 2 * $times;
-        $st = sqrt($times) * ($max - $min) / self::SQRT_12;
+        $sd = sqrt($times) * ($max - $min) / self::SQRT_12;
         $result_min = $min * $times;
         $result_max = $max * $times;
         do {
-            $result = intval(round(self::getNormalRand($av, $st)));
+            $result = intval(round(self::getNormalRand($av, $sd)));
+        } while ($result < $result_min || $result > $result_max);
+        return $result;
+    }
+    /**
+     * Random integer with binomial distribution
+     * @param float $probability (0,1)
+     * @param int $times
+     * @return int
+     */
+    public static function getAppearCountUsingNormalRand(float $probability, int $times): int {
+        $av = $times * $probability; // np
+        $sd = sqrt($times * $probability * (1 - $probability)); // √np(1-p)
+        $result_min = 0;
+        $result_max = $times;
+        do {
+            $result = intval(round(self::getNormalRand($av, $sd)));
         } while ($result < $result_min || $result > $result_max);
         return $result;
     }
